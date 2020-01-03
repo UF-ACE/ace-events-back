@@ -16,9 +16,9 @@ gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 # MySQL adapater for production
 gem 'mysql2', '~> 0.5.2'
-# Doorkeep for OIDC authn
-gem 'doorkeeper', '~> 5.2', '>= 5.2.3'
-gem 'doorkeeper-openid_connect', '~> 1.7'
+# Omniauth for OIDC authn
+gem 'omniauth', '~> 1.9'
+gem 'omniauth_openid_connect'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
