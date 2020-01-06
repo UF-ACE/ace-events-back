@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: auth_hash['info']['email']) || User.create_with_omniauth!(auth_hash)
     reset_session
     session[:user_id] = @user.id
+    redirect_to '/'
   end
 
   def destroy
