@@ -4,6 +4,14 @@ class User < ApplicationRecord
   validates :name, :email, :role, presence: true
   validates :email, uniqueness: true
 
+  def chair?
+    role > 0
+  end
+
+  def eboard?
+    role > 1
+  end
+
   def self.build_with_omniauth!(auth_hash)
     # Check for existing user
     potential_user = find_by(email: auth_hash['info']['email'])

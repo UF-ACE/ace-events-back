@@ -19,6 +19,8 @@ gem 'mysql2', '~> 0.5.2'
 # Omniauth for OIDC authn
 gem 'omniauth', '~> 1.9'
 gem 'omniauth_openid_connect'
+# Cancancan for permissions
+gem 'cancancan', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -29,6 +31,7 @@ group :development, :test do
 
   # Testing Stack
   gem 'rspec-rails', '~> 3.9'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'ffaker'
 end

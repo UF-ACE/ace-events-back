@@ -4,4 +4,12 @@ FactoryBot.define do
     email  { FFaker::Internet.email }
     role { 0 }
   end
+
+  factory :chair, parent: :user do
+    role { 1 }
+  end
+
+  factory :eboard, parent: :user do
+    role { 2 }
+  end
 end

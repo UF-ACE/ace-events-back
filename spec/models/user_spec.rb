@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'is a valid user' do
+  it 'is a valid user with valid parameters' do
     user = build(:user)
     expect(user).to be_valid
   end
