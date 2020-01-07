@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   post '/auth/developer/callback', to: 'sessions#create'
   post '/auth/ace_cloud/callback', to: 'sessions#create'
+  get '/api/get_user', to: 'sessions#get'
   get '/auth/logout', to: 'sessions#destroy'
 end

@@ -1,9 +1,18 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.find_by(email: auth_hash['info']['email']) || User.create_with_omniauth!(auth_hash)
-    reset_session
-    session[:user_id] = @user.id
-    redirect_to '/'
+    @user = User.build_with_omniauth!(auth_hash)
+    if @user.save
+      reset_session
+      session[:user_id] = @user.id
+      redirect_to '/'
+    else
+      render json: {error: @user.errors}, status: :bad_request
+    end
+  end
+
+  def get
+    head :forbidden if session[:user_id].nil?
+    @user = User.find_by(id: session[:user_id])
   end
 
   def destroy
@@ -11,10 +20,10 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
+    redirect_to '/', :alert => "Authentication error: #{params[:message].humanize}"
   end
 
-  protected
+  private
 
   def auth_hash
     request.env['omniauth.auth']
