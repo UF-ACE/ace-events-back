@@ -1,1 +1,1 @@
-json.content @events
+json.content @events, :id, :name, :description, :location, :start_time, :end_time
