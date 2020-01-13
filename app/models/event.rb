@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   validates :sign_in_id, uniqueness: true
   validate :end_after_start_time
 
+  has_many :attendees
+
   def end_after_start_time
     return if end_time.blank? || start_time.blank?
     if end_time < start_time

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   scope :api do
     get '/get_user', to: 'sessions#get'
-    resources :events, defaults: { format: 'json' }
+    resources :events, defaults: { format: 'json' } do
+      resources :attendees, only: [:index, :create, :destroy], defaults: { format: 'json' }
+    end
   end
 end

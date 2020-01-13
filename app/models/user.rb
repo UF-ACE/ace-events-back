@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :name, :email, :role, presence: true
   validates :email, uniqueness: true
 
+  has_many :attendees
+
   def chair?
     role > 0
   end
