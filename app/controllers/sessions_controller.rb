@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
     if @user.save
       reset_session
       session[:user_id] = @user.id
-      redirect_to '/'
+      unless request.env['omniauth.origin'].nil?
+        redirect_to request.env['omniauth.origin']
+      else
+        redirect_to '/'
+      end
     else
       render json: {error: @user.errors}, status: :bad_request
     end

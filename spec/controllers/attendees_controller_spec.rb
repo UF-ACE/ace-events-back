@@ -61,19 +61,19 @@ RSpec.describe AttendeesController, type: :controller do
       context 'with valid parameters' do
         it 'creates a new attendee' do
           expect do
-            post :create, params: { event_id: event.id, attendee: valid_params }, session: logged_in
+            post :create, params: { id: event.sign_in_id }, session: logged_in
           end.to change(Attendee, :count).by(1)
         end
 
         it 'returns HTTP status 201 (Created)' do
-          post :create, params: { event_id: event.id, attendee: valid_params }, session: logged_in
+          post :create, params: { id: event.sign_in_id }, session: logged_in
           expect(response).to have_http_status(:created)
         end
       end
 
       context 'with invalid parameters' do
         it 'returns HTTP status 400 (Bad Request)' do
-          post :create, params: { event_id: event.id, attendee: invalid_params }, session: logged_in
+          post :create, params: { id: -1 }, session: logged_in
           expect(response).to have_http_status(:bad_request)
         end
       end
@@ -81,7 +81,7 @@ RSpec.describe AttendeesController, type: :controller do
 
     context 'while logged out' do
       it 'returns HTTP status 403 (Forbidden)' do
-        post :create, params: { event_id: event.id }, session: { attendee: valid_params }
+        post :create, params: { id: event.sign_in_id }, session: { attendee: valid_params }
         expect(response).to have_http_status(:forbidden)
       end
     end
