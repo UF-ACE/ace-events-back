@@ -17,12 +17,15 @@ class User < ApplicationRecord
   def self.build_with_omniauth!(auth_hash)
     # Check for existing user
     potential_user = find_by(email: auth_hash['info']['email'])
-    return potential_user unless potential_user.nil?
-
     role = User.get_role_by_oidc_groups(auth_hash['extra']['raw_info']['groups'])
 
     if role.nil?
       role = 0
+    end
+
+    unless potential_user.nil?
+      potential_user.update_attributes(role: role)
+      return potential_user
     end
 
     # Doesn't exist, create
