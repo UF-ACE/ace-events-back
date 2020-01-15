@@ -7,13 +7,13 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.7'
+gem 'rails', '~> 6.0.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# MySQL adapater for production
-gem 'mysql2', '~> 0.5.2'
+# Postgresql for database
+gem 'pg', '~> 0.18.4'
 # Omniauth for OIDC authn
 gem 'omniauth', '~> 1.9'
 gem 'omniauth_openid_connect'
@@ -21,14 +21,11 @@ gem 'omniauth_openid_connect'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record in development
-  gem 'sqlite3'
-
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   # .env file for Omniauth tokens
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 
   # Testing Stack
   gem 'rspec-rails', '~> 3.9'

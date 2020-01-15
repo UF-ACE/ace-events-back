@@ -10,7 +10,6 @@ ADD Gemfile .
 ADD Gemfile.lock .
 RUN bundle install --without development test
 
-COPY . .
+ADD . .
 
-EXPOSE 8080
-CMD ["rails", "s"]
+CMD ["rails", "db:prepare"]

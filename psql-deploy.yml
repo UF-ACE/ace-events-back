@@ -1,0 +1,15 @@
+apiVersion: kubedb.com/v1alpha1
+kind: Postgres
+metadata:
+  name: event-db
+  namespace: ace-official
+spec:
+  version: "11.0"
+  storageType: Durable
+  storage:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi
+  terminationPolicy: DoNotTerminate
