@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
     role = User.get_role_by_oidc_groups(auth_hash['extra']['raw_info']['groups'])
 
+    if role.nil?
+      role = 0
+    end
+
     # Doesn't exist, create
     params = ActionController::Parameters.new(name: auth_hash['info']['name'], email: auth_hash['info']['email'], role: role).permit(:name, :email, :role)
     user = User.new(params)

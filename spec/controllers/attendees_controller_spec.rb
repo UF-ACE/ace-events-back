@@ -98,7 +98,7 @@ RSpec.describe AttendeesController, type: :controller do
     context 'with a valid attendee' do
       context 'as the attendee' do
         it 'returns HTTP status 200 (OK)' do
-          delete :destroy, params: { event_id: attendee.event.id, id: attendee.id}, session: logged_in_diff
+          delete :destroy, params: { event_id: attendee.event.id, id: attendee.id }, session: logged_in_diff
           expect(response).to have_http_status(:ok)
         end
 

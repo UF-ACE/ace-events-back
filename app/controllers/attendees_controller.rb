@@ -16,7 +16,7 @@ class AttendeesController < ApplicationController
   end
 
   def destroy
-    attendee = Attendee.find_by(event_id: params[:id], id: params[:id])
+    attendee = Attendee.find_by(event_id: params[:event_id], id: params[:id])
     return head :not_found if attendee.nil?
     return head :forbidden unless can? :destroy, attendee
     attendee.destroy

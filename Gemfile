@@ -28,7 +28,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
 
   # Testing Stack
-  gem 'rspec-rails', '~> 3.9'
+  gem 'rspec-rails', '~> 4.0.beta4'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'ffaker'
