@@ -4,7 +4,7 @@ metadata:
   name: event-db
   namespace: ace-official
 spec:
-  version: "11.0"
+  version: "11.2"
   storageType: Durable
   storage:
     accessModes:
