@@ -21,7 +21,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       host: "sso.uf-ace.com/auth/realms/master/protocol/openid-connect/auth",
       identifier: ENV["OP_CLIENT_ID"],
       secret: ENV["OP_SECRET_KEY"],
-      redirect_uri: "http://localhost/auth/ace_cloud/callback",
+      redirect_uri: ENV["OP_REDIRECT_URI"],
     }
   }
 end
