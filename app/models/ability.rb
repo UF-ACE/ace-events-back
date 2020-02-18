@@ -5,6 +5,7 @@ class Ability
 
   def initialize(user)
     can :read, Event, public: true
+    can :upcoming, Event, public: true
     can :read, Attendee, public: true
 
     if user.present? # Logged in

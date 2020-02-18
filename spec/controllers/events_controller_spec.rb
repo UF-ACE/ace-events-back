@@ -43,6 +43,21 @@ RSpec.describe EventsController, type: :controller do
     end
   end
 
+  describe "GET upcoming" do
+    before do
+      get :upcoming, { format: :json }
+    end
+
+    it 'assigns all events to @events' do
+      new_event = create(:event, start_time: Date.tomorrow, end_time: Date.tomorrow)
+      expect(assigns[:events]).to eq([new_event])
+    end
+
+    it 'returns HTTP status 200 (OK)' do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe "GET show" do
     before do
       get :show, params: { id: event.id, format: :json }

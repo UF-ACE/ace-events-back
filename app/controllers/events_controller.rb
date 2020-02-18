@@ -5,6 +5,10 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def upcoming
+    @events = Event.where("start_time > ?", DateTime.now)
+  end
+
   def show
     @event = Event.find_by(id: params[:id])
     return head :not_found unless @event
