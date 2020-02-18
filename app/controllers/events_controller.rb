@@ -36,12 +36,12 @@ class EventsController < ApplicationController
   private
 
   def event_create_params
-    parameters = params.require(:event).permit(:name, :description, :location, :start_time, :end_time)
+    parameters = params.require(:event).permit(:name, :short_description, :description, :location, :start_time, :end_time)
     parameters[:sign_in_id] = Event.gen_sign_in_id()
     parameters
   end
 
   def event_update_params
-    params.require(:event).permit(:name, :description, :location, :start_time, :end_time)
+    params.require(:event).permit(:name, :short_description, :description, :location, :start_time, :end_time)
   end
 end

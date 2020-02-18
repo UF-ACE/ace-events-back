@@ -116,6 +116,11 @@ RSpec.describe EventsController, type: :controller do
           expect(event.description).to eq(valid_params[:description])
         end
 
+        it 'updates the requested event short description' do
+          event.reload
+          expect(event.short_description).to eq(valid_params[:short_description])
+        end
+
         it 'updates the requested event location' do
           event.reload
           expect(event.location).to eq(valid_params[:location])
