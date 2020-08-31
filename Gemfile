@@ -19,6 +19,8 @@ gem 'omniauth', '~> 1.9'
 gem 'omniauth_openid_connect'
 # Cancancan for permissions
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
+# Rails CORS for interfacing with the event API
+gem 'rack-cors', '~> 0.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
