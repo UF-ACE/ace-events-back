@@ -1,3 +1,5 @@
+Warning: No longer in active development. Likely violates GPL: https://github.com/rails/rails/issues/41750
+
 # README
 
 This README would normally document whatever steps are necessary to get the
